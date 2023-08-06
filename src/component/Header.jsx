@@ -7,7 +7,7 @@ const Header = () => {
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container>
                 <Image src={logo} style={{ width: '120px', height: '56px' }} />
-                <Form>
+                <Form className='ms-lg-5'>
                     <Form.Control
                         type="search"
                         placeholder="Search"
