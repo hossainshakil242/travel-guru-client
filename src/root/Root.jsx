@@ -1,10 +1,12 @@
 import React from 'react';
 import Header from '../component/Header';
+import { Outlet } from 'react-router-dom';
 
 const Root = () => {
     return (
-        <div>
+        <div className='montserrat-font'>
             <Header></Header>
+            <Outlet></Outlet>
         </div>
     );
 };
