@@ -8,7 +8,7 @@ const Login = () => {
     const [success, setSuccess] = useState('');
     const [error, setError] = useState('');
 
-    const { logIn } = useContext(AuthContext);
+    const { logIn,signInWithGoogle } = useContext(AuthContext);
 
     const handleLogin = e => {
         e.preventDefault();
@@ -25,6 +25,16 @@ const Login = () => {
             .catch(error => {
                 console.log(errro.message);
             })
+    }
+    const handleSignInWithGoogle=()=>{
+        signInWithGoogle()
+        .then(result=>{
+            const loggedUser = result.user;
+            console.log(loggedUser);
+        })
+        .catch(error=>{
+            console.log(error.message);
+        })
     }
 
 
@@ -57,7 +67,7 @@ const Login = () => {
             </Form>
             <p className='text-center my-3 fw-bold'>Or</p>
             <div className="d-grid  w-25 mx-auto  gap-3" >
-                <Button variant="outline-warning text-black fw-medium" onClick={() => console.log("Warning")}>
+                <Button variant="outline-warning text-black fw-medium" onClick={handleSignInWithGoogle}>
                     Countinue with Google
                 </Button>
                 <Button variant="outline-warning text-black fw-medium " onClick={() => console.log("Warning")}>
